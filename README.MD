@@ -24,4 +24,6 @@ Its primary purpose is to log every incoming request for testing, debugging, or 
 
 ## Setup
 
-1. Clone the repository or create the following files in a new directory:
+1. Clone the repository or create the following files in a new directory
+2. Run `docker-compose up` to build and start the container
+3. Access the web service at `http://localhost:8099` and see all requests logged in the terminal
