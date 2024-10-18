@@ -5,7 +5,9 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  push:
+  create:
+    tags:
+      - "v*.*.*"
 
 env:
   IMAGE: 'logger-server'
@@ -28,6 +30,9 @@ jobs:
           tags: |
             type=ref,event=branch
             type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
             type=sha
 
       - name: Set up QEMU
