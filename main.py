@@ -1,16 +1,12 @@
-import sys
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from log_config import configure_logging
 import logging
 
 app = FastAPI()
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    stream=sys.stdout,
-    format="%(asctime)s %(levelname)s %(message)s"
-)
+# Configure logging from logging.conf
+configure_logging()
 
 # Configure CORS
 app.add_middleware(
